@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Jogador : MonoBehaviour
 {
@@ -50,6 +51,12 @@ public class Jogador : MonoBehaviour
             Destroy(other.gameObject);
             score += 1;
             scoreText.text = "Score: " + score;
+        }
+
+        if (other.gameObject.tag.Equals("Finish"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //gameObject.SetActive(false);
         }
     }
 }
